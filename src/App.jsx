@@ -8,6 +8,7 @@ import Counter from '@/Counter'
 import Grandpa from '@/Grandpa'
 import Parent from '@/brother/Parent'
 import Controlled from '@/Controlled'
+import ConditionalAndFor from '@/ConditionalAndFor'
 
 const chenhuanStyle = {
     color:'green',
@@ -31,7 +32,8 @@ class App extends React.Component{
             {/* <Counter initCount={10} callback={this.getChildValue}/> */}
             {/* <Grandpa /> */}
             {/* <Parent/> */}
-            <Controlled/>
+            {/* <Controlled/> */}
+            <ConditionalAndFor/>
         </div>
     }
 
