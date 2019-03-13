@@ -4,7 +4,7 @@ export default class ConditionalAndFor extends Component {
   constructor() {
     super();
     this.state = {
-      isLogin: false,
+      isLogin: true,
       name: "张三",
       persons: [
         { id: 1, name: "张无忌", skill: "乾坤大挪移" },
@@ -16,19 +16,43 @@ export default class ConditionalAndFor extends Component {
   }
 
   render() {
-    return (
-      <div id="test">
-        <div>我是一个结果</div>
       
+        /* if (this.state.isLogin){
+            return <div>
+                恭喜您登录了...
+            </div>
+        } else {
+            return <div>
+                请去登录...
+            </div>
+        } */
+        
+       
+    /* const { isLogin } = this.state;
+    return (
+      <div>{isLogin ? <div>恭喜您登录了...</div> : <div>请去登录...</div>}</div>
+    ); */
+     
 
-      <ul>
-          {this.state.persons.map(item =>{
-              return <li key={item.id}>
-                  {item.name}----{item.skill}
-              </li>
-          })}
-      </ul>
-      </div>
-    );
+    let renderSpan = null
+    if (this.state.name){
+        renderSpan = <span>{this.state.name}</span>
+    }
+
+    return (
+        <div id="test">
+          <div>我是一个结果</div>
+          {/* {this.state.name && <span>{this.state.name}</span>} */}
+          {renderSpan}
+  
+        <ul>
+            {this.state.persons.map(item =>{
+                return <li key={item.id}>
+                    {item.name}----{item.skill}
+                </li>
+            })}
+        </ul>
+        </div>
+      );
   }
 }
