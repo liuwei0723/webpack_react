@@ -9,6 +9,9 @@ import Grandpa from '@/Grandpa'
 import Parent from '@/brother/Parent'
 import Controlled from '@/Controlled'
 import ConditionalAndFor from '@/ConditionalAndFor'
+import MyCheckboxAndRadio from '@/MyCheckboxAndRadio'
+import RefAndDom from '@/RefAndDom'
+import Book from '@/book/Book'
 
 const chenhuanStyle = {
     color:'green',
@@ -33,7 +36,10 @@ class App extends React.Component{
             {/* <Grandpa /> */}
             {/* <Parent/> */}
             {/* <Controlled/> */}
-            <ConditionalAndFor/>
+            {/* <ConditionalAndFor/> */}
+            {/* <MyCheckboxAndRadio/> */}
+            {/* <RefAndDom/> */}
+            <Book/>
         </div>
     }
 

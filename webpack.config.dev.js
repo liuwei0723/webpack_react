@@ -40,6 +40,17 @@ module.exports = {
         ]
       },
       {
+        test: /\.css$/,
+        use: [
+          {
+            loader: "style-loader" // creates style nodes from JS strings
+          },
+          {
+            loader: "css-loader" // translates CSS into CommonJS
+          }
+        ]
+      },
+      {
         test: /\.(png|jpg|gif|ttf|woff|woff2|eot|svg)$/i,
         use: [
           {
