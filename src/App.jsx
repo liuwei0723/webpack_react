@@ -12,6 +12,7 @@ import ConditionalAndFor from '@/ConditionalAndFor'
 import MyCheckboxAndRadio from '@/MyCheckboxAndRadio'
 import RefAndDom from '@/RefAndDom'
 import Book from '@/book/Book'
+import Basic from '@/router/Basic'
 
 const chenhuanStyle = {
     color:'green',
@@ -39,7 +40,8 @@ class App extends React.Component{
             {/* <ConditionalAndFor/> */}
             {/* <MyCheckboxAndRadio/> */}
             {/* <RefAndDom/> */}
-            <Book/>
+            {/* <Book/> */}
+            <Basic />
         </div>
     }
 
