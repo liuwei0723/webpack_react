@@ -2,6 +2,11 @@ import React, { Component } from "react";
 
 import { Button } from 'element-react';
 
+import {addToCart} from '../store/actionCreators'
+
+import store from '../store'
+
+
 export default class GoodsList extends Component {
   constructor() {
     super();
@@ -43,6 +48,12 @@ export default class GoodsList extends Component {
       ]
     };
   }
+  addCart=(goods)=>{
+    const action = addToCart(goods)
+    console.log(action);
+    store.dispatch(action)
+    
+  }
   render() {
     return (
       <div>
@@ -59,6 +70,7 @@ export default class GoodsList extends Component {
                 <Button
                   type="success"
                   style={{marginTop:15}}
+                  onClick = {()=>{this.addCart(item)}}
                 >
                   <span>
                     <span>加入购物车</span>

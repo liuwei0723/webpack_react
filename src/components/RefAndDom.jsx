@@ -28,7 +28,7 @@ class RefAndDom extends Component{
     upload= () =>{
         // 获取用户选择的文件
         const file = this.fileRef.current.files[0]
-        console.log(file);        
+        // console.log(file);         
         if(file){
             //使用xhr2进行异步文件上传操作
             var xhr = new XMLHttpRequest()
@@ -43,8 +43,10 @@ class RefAndDom extends Component{
             xhr.onreadystatechange = () =>{
                 if(xhr.readyState === 4 && xhr.status ===200){
                     const res = xhr.responseText
+                    console.log(res);
+                    
                     const obj = JSON.parse(res)
-
+                    console.log(obj);
                     this.setState({
                         imgPath:obj.path
                     })

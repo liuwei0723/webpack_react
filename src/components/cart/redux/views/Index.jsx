@@ -14,8 +14,33 @@ import Cart from './Cart.jsx'
 import NotFound from './NotFound'
 
 export default class Index extends Component {
+  constructor(){
+    super()
+    
+    this.state={
+      totalCount : 0
+    }
+  }
+
   componentWillMount(){
-    console.log(store.getState())
+    this.setState({
+      totalCount:this.calcTotalCount()
+    })
+    store.subscribe(()=>{
+      // console.log('----仓库数据发生改变----');
+      this.setState({
+        totalCount:this.calcTotalCount()
+      })
+    })
+  }
+
+  calcTotalCount = () =>{
+    const goodsList = store.getState()
+    let totalCount = 0
+    goodsList.forEach(item=>{
+      totalCount += item.num
+    })
+    return totalCount
   }
   render() {
     return (
@@ -27,7 +52,7 @@ export default class Index extends Component {
               <p>
                 <Link to="/">商品列表</Link>
                 <Link to="/cart">
-                  购物车<span />
+                  购物车{this.state.totalCount>0 && <span>({this.state.totalCount})</span>}<span />
                 </Link>
               </p>
             </h2>

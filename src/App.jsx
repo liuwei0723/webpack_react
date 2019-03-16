@@ -14,6 +14,12 @@ import RefAndDom from '@/RefAndDom'
 import Book from '@/book/Book'
 import Basic from '@/router/Basic'
 
+//购物车案例
+import Index from '@/cart/redux/views/Index'
+
+//热更新
+import {hot} from 'react-hot-loader/root'
+
 const chenhuanStyle = {
     color:'green',
     fontSize:50
@@ -41,7 +47,8 @@ class App extends React.Component{
             {/* <MyCheckboxAndRadio/> */}
             {/* <RefAndDom/> */}
             {/* <Book/> */}
-            <Basic />
+            {/* <Basic /> */}
+            <Index/>
         </div>
     }
 
@@ -68,4 +75,4 @@ class App extends React.Component{
     }
 }
 
-export default App
+export default hot(App)
