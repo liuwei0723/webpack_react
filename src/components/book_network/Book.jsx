@@ -6,12 +6,7 @@ export default class Book extends Component {
     super();
 
     this.state = {
-      books: [
-        // { id: 1001, name: "西游记" },
-        // { id: 1002, name: "红楼梦" },
-        // { id: 1003, name: "水浒传" },
-        // { id: 1004, name: "三国演义" }
-      ],
+      books: [],
       bookName: "",
       editId: null
     };
@@ -30,23 +25,7 @@ export default class Book extends Component {
 
     if (this.state.editId) {
       //修改
-      // this.state.books.some(item => {
-      //   if (item.id === this.state.editId) {
-      //     item.name = this.state.bookName;
-      //     return true;
-      //   }
-      // });
-      // this.setState(
-      //   {
-      //     books: this.state.books
-      //   },
-      //   () => {
-      //     this.state.editId = null;
-      //     this.setState({
-      //       bookName: ""
-      //     });
-      //   }
-      // );
+      
       fetch(`http://localhost:8080/book/${this.state.editId}`, {
         method: "PUT", //请求方法
         headers: {
@@ -63,22 +42,7 @@ export default class Book extends Component {
         });
 
     } else {
-      //新增
-      // const newArray = [
-      //   ...this.state.books,
-      //   { id: maxId, name: this.state.bookName }
-      // ];
-      // this.setState(
-      //   {
-      //     books: newArray
-      //   },
-      //   () => {
-      //     this.state.editId = null;
-      //     this.setState({
-      //       bookName: ""
-      //     });
-      //   }
-      // );
+      //新增      
       fetch("http://localhost:8080/book", {
         method: "POST", //请求方法
         headers: {
@@ -97,13 +61,16 @@ export default class Book extends Component {
   };
   deleteBook = (event, id) => {
     event.preventDefault();
-
-    const newArray = this.state.books.filter(item => item.id != id);
-
-    this.setState({
-      books: newArray
-    });
+    fetch(`http://localhost:8080/book/${id}`,{
+      method:"delete"
+    }).then(response=>{response.json()})
+    .then(data=>{
+      console.log(data);
+      this.loadBooksData()
+    })
+    
   };
+  // 编辑图书
   editBook = (event, id) => {
     event.preventDefault();
     fetch(`http://localhost:8080/book/${id}`)

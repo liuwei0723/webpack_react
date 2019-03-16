@@ -11,7 +11,7 @@ import Controlled from '@/Controlled'
 import ConditionalAndFor from '@/ConditionalAndFor'
 import MyCheckboxAndRadio from '@/MyCheckboxAndRadio'
 import RefAndDom from '@/RefAndDom'
-import Book from '@/book/Book'
+import Book from '@/book_network/Book'
 import Basic from '@/router/Basic'
 
 //购物车案例

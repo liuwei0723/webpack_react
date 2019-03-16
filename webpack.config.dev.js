@@ -60,6 +60,14 @@ module.exports = {
       }
     ]
   },
+  devServer:{
+    proxy:{
+      '/':{
+        target:'http://127.0.0.1:3000/',//发送给真正的服务器
+        secure:false //支持https协议的代理 
+      }
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({
       // 以 public/index.html为模版生成一个html文件去运行我们的打包好的js
